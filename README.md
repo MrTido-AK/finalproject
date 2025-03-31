@@ -30,7 +30,7 @@
 
 ### **Data Structure**  
 - **Fields**: Brand, Model, Storage, Weight, RAM, Front/Back Camera, Processor, Battery, Screen Size, Prices (in multiple currencies), Release Year.  
-- **Sample Size**: ~200+ entries spanning 2020–2025.  
+- **Sample Size**: 930  
 
 ### **Cleaning Challenges**  
 #### **Formatting**:  
