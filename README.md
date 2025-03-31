@@ -6,9 +6,10 @@
 2. [Data Overview & Cleaning Plan](#data-overview-cleaning-plan)  
 3. [Proposed Analyses](#proposed-analyses)  
 4. [Tools & Methods](#tools-methods)  
-5. [Deliverables](#deliverables)  
-6. [Setup & Usage](#setup-usage)  
-7. [Example Visualizations](#example-visualizations)  
+5. [Deliverables](#deliverables)
+6. [Timeline](#timeline)
+7. [Setup & Usage](#setup-usage)  
+8. [Example Visualizations](#example-visualizations)  
 
 ---
 
@@ -111,58 +112,58 @@
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn forex-python plotly
 
-# Workflow
-## 1. Data Cleaning (Xử lý dữ liệu)  
-**File**: `clean_data.py`  
-**Công việc**:  
-- Xử lý dữ liệu thô (raw data) để chuẩn hóa định dạng.  
-- Tách thông số camera thành hai giá trị riêng biệt (primary và secondary).  
-- Chuyển đổi giá tiền từ chuỗi có ký hiệu tiền tệ sang số liệu định lượng (ví dụ: "PKR 99,999" → 99999 USD).  
-- Tách năm phát hành từ tên cột hoặc chuỗi cuối cùng của mỗi dòng.  
-**Kết quả đầu ra**:  
-- Tệp `cleaned_mobile_data.csv` chứa dữ liệu đã làm sạch, chuẩn hóa và sẵn sàng cho phân tích.  
-
----
-
-## 2. Exploratory Analysis (Phân tích khám phá)  
-**File**: `exploratory_analysis.ipynb`  
-**Công việc**:  
-- Vẽ các biểu đồ xu hướng (line charts) để theo dõi sự thay đổi của RAM, dung lượng pin, kích thước màn hình và giá theo năm.  
-- Tạo heatmap để phân tích tương quan giữa các đặc tính (RAM, camera, dung lượng pin) và giá cả.  
-- Sử dụng radar chart để so sánh hiệu năng giữa các thương hiệu (ví dụ: Realme, POCO, Oppo) dựa trên RAM, dung lượng pin và giá.  
-- Phân tích tương quan thống kê giữa các tính năng kỹ thuật và giá thành sản phẩm.  
-**Kết quả đầu ra**:  
-- Các biểu đồ trực quan (line chart, heatmap, radar chart).  
-- Ma trận tương quan giữa các đặc tính và giá.  
-- Insights ban đầu về xu hướng thị trường và mối liên hệ giữa tính năng và giá.  
-
----
-
-## 3. In-depth Analysis (Phân tích sâu)  
-**File**: `clustering_analysis.ipynb`  
-**Công việc**:  
-- Áp dụng mô hình **K-means clustering** để phân loại thiết bị thành các nhóm "best value" (thiết bị có tính năng cao nhưng giá thấp).  
-- Xây dựng mô hình **hồi quy tuyến tính** để xác định các tính năng (RAM, độ phân giải camera, dung lượng pin) có ảnh hưởng mạnh đến giá bán.  
-- Đánh giá độ chính xác và giải thích kết quả của mô hình.  
-**Kết quả đầu ra**:  
-- Kết quả phân nhóm (clusters) của các thiết bị theo giá trị.  
-- Báo cáo kết quả hồi quy, chỉ số hệ số hồi quy.  
-- Đề xuất chiến lược dựa trên các tính năng ảnh hưởng đến giá.  
-
----
-
-## 4. Dashboard Development (Xây dựng dashboard)  
-**File**: `dashboard.py`  
-**Công việc**:  
-- Tạo dashboard tương tác sử dụng thư viện **Plotly/Dash**.  
-- Bao gồm các thành phần:  
-  - Biểu đồ line chart để theo dõi xu hướng giá theo năm.  
-  - Heatmap tương quan giữa các tính năng.  
-  - Radar chart so sánh hiệu năng thương hiệu.  
-  - Bảng điều khiển cho phép lọc dữ liệu theo năm, thương hiệu, hoặc phân khúc giá.  
-- Tối ưu giao diện người dùng (UI) để dễ dàng thao tác và trình bày.  
-**Kết quả đầu ra**:  
-- Ứng dụng dashboard trực quan (file HTML hoặc web app) cho phép phân tích dữ liệu linh hoạt và tương tác.  
+  # Workflow
+  ## 1. Data Cleaning (Xử lý dữ liệu)  
+  **File**: `clean_data.py`  
+  **Công việc**:  
+  - Xử lý dữ liệu thô (raw data) để chuẩn hóa định dạng.  
+  - Tách thông số camera thành hai giá trị riêng biệt (primary và secondary).  
+  - Chuyển đổi giá tiền từ chuỗi có ký hiệu tiền tệ sang số liệu định lượng (ví dụ: "PKR 99,999" → 99999 USD).  
+  - Tách năm phát hành từ tên cột hoặc chuỗi cuối cùng của mỗi dòng.  
+  **Kết quả đầu ra**:  
+  - Tệp `cleaned_mobile_data.csv` chứa dữ liệu đã làm sạch, chuẩn hóa và sẵn sàng cho phân tích.  
+  
+  ---
+  
+  ## 2. Exploratory Analysis (Phân tích khám phá)  
+  **File**: `exploratory_analysis.ipynb`  
+  **Công việc**:  
+  - Vẽ các biểu đồ xu hướng (line charts) để theo dõi sự thay đổi của RAM, dung lượng pin, kích thước màn hình và giá theo năm.  
+  - Tạo heatmap để phân tích tương quan giữa các đặc tính (RAM, camera, dung lượng pin) và giá cả.  
+  - Sử dụng radar chart để so sánh hiệu năng giữa các thương hiệu (ví dụ: Realme, POCO, Oppo) dựa trên RAM, dung lượng pin và giá.  
+  - Phân tích tương quan thống kê giữa các tính năng kỹ thuật và giá thành sản phẩm.  
+  **Kết quả đầu ra**:  
+  - Các biểu đồ trực quan (line chart, heatmap, radar chart).  
+  - Ma trận tương quan giữa các đặc tính và giá.  
+  - Insights ban đầu về xu hướng thị trường và mối liên hệ giữa tính năng và giá.  
+  
+  ---
+  
+  ## 3. In-depth Analysis (Phân tích sâu)  
+  **File**: `clustering_analysis.ipynb`  
+  **Công việc**:  
+  - Áp dụng mô hình **K-means clustering** để phân loại thiết bị thành các nhóm "best value" (thiết bị có tính năng cao nhưng giá thấp).  
+  - Xây dựng mô hình **hồi quy tuyến tính** để xác định các tính năng (RAM, độ phân giải camera, dung lượng pin) có ảnh hưởng mạnh đến giá bán.  
+  - Đánh giá độ chính xác và giải thích kết quả của mô hình.  
+  **Kết quả đầu ra**:  
+  - Kết quả phân nhóm (clusters) của các thiết bị theo giá trị.  
+  - Báo cáo kết quả hồi quy, chỉ số hệ số hồi quy.  
+  - Đề xuất chiến lược dựa trên các tính năng ảnh hưởng đến giá.  
+  
+  ---
+  
+  ## 4. Dashboard Development (Xây dựng dashboard)  
+  **File**: `dashboard.py`  
+  **Công việc**:  
+  - Tạo dashboard tương tác sử dụng thư viện **Plotly/Dash**.  
+  - Bao gồm các thành phần:  
+    - Biểu đồ line chart để theo dõi xu hướng giá theo năm.  
+    - Heatmap tương quan giữa các tính năng.  
+    - Radar chart so sánh hiệu năng thương hiệu.  
+    - Bảng điều khiển cho phép lọc dữ liệu theo năm, thương hiệu, hoặc phân khúc giá.  
+  - Tối ưu giao diện người dùng (UI) để dễ dàng thao tác và trình bày.  
+  **Kết quả đầu ra**:  
+  - Ứng dụng dashboard trực quan (file HTML hoặc web app) cho phép phân tích dữ liệu linh hoạt và tương tác.  
 
 ---
  
