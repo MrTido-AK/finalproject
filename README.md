@@ -1,119 +1,149 @@
-# Mobile Dataset Analysis: Insights and Strategy  
-**Created by Hien-hoang/ DA_240923**  
+# 📊 Đề xuất Phân tích & Trực quan hóa Dữ liệu Mobile Dataset (2025)
 
 ---
 
-## Table of Contents  
-1. [Introduction & Objectives](#1-introduction-objectives)  
-2. [Data Overview & Cleaning Plan](#2-data-overview-cleaning-plan)  
-3. [Proposed Analyses](#3-proposed-analyses)  
-4. [Tools & Methods](#4-tools-methods)  
-5. [Deliverables](#5-deliverables)  
-6. [Timeline](#6-timeline)  
-7. [Additional Considerations](#7-additional-considerations)  
+## 1. 🎯 Mục tiêu
+
+Phân tích dữ liệu các mẫu điện thoại nhằm:
+
+- So sánh giá và thông số kỹ thuật giữa các hãng.
+- Hiểu xu hướng thị trường theo năm, khu vực.
+- Dự đoán giá bán trong tương lai dựa trên các đặc điểm kỹ thuật.
 
 ---
 
-## 1. Introduction & Objectives  
-**Goal**: Extract actionable insights from the **Mobiles Dataset (2025)** to inform decision-making for market positioning, pricing strategy, and product development.  
+## 2. 🚀 Các bước phân tích đề xuất
 
-**Key Objectives**:  
-- **Market Trends**: Track evolution of device specifications (RAM, battery, screen size) and pricing over time.  
-- **Competitive Analysis**: Compare brands (e.g., Realme, POCO, Oppo) across performance, pricing, and market segments.  
-- **Customer Value Drivers**: Identify features (RAM, camera quality) that strongly correlate with price.  
-- **Regional Pricing Strategy**: Analyze price variations across currencies (PKR, INR, USD, etc.) and markets.  
-- **Product Segmentation**: Classify devices into budget, mid-range, and flagship categories.  
+### 🔍 Tiền xử lý dữ liệu
 
----
-
-## 2. Data Overview & Cleaning Plan  
-
-### **Data Structure**  
-- **Fields**: Brand, Model, Storage, Weight, RAM, Front/Back Camera, Processor, Battery, Screen Size, Prices (in multiple currencies), Release Year.  
-- **Sample Size**: 930  
-
-### **Cleaning Challenges**  
-#### **Formatting**:  
-- Split camera specs (e.g., "50MP + 2MP" → Primary/Secondary).  
-- Normalize prices (e.g., "PKR 99,999" → numeric USD values).  
-- Extract release years from strings (e.g., "2020POCO,M2 Pro..." → 2020).  
-
-#### **Standardization**:  
-- Normalize processor names (e.g., "Snapdragon 8 Gen 2" → "High-tier").  
-- Handle missing data (e.g., battery capacity, camera details).  
+- Chuyển đổi các cột giá (PKR, INR, USD, v.v.) thành định dạng số.
+- Chuyển đổi thông số kỹ thuật (RAM, Camera, Battery, Weight) về định dạng số.
+- Chuẩn hóa các đơn vị (GB, MP, mAh, inches...).
+- Xử lý dữ liệu trùng lặp (nếu có).
 
 ---
 
-## 3. Proposed Analyses  
+### 📈 Phân tích mô tả (Exploratory Data Analysis)
 
-### **3.1 Market Trends Over Time**  
-- **Analysis**: Track changes in RAM, battery size, screen resolution, and price per year.  
-- **Visualization**:  
-  - **Line charts** (Matplotlib): RAM and price trends over time.  
-  - **Bar charts** (Seaborn): Average battery size by year.  
-
-### **3.2 Brand Comparison**  
-- **Analysis**: Compare brands on price competitiveness, flagship vs. budget offerings, and processor usage.  
-- **Visualization**:  
-  - **Heatmaps** (Seaborn): Correlation between brand features and price.  
-  - **Radar charts** (Plotly): Multi-variable comparison (RAM, battery, price).  
-
-### **3.3 Feature-Price Relationship**  
-- **Analysis**: Use regression models to identify price-correlated features (RAM, camera megapixels).  
-- **Visualization**:  
-  - **Scatter plots** (Plotly): Price vs. RAM/camera.  
-  - **Correlation matrices** (Seaborn): Feature-price relationships.  
-
-### **3.4 Regional Pricing Strategy**  
-- **Analysis**: Convert prices to USD and identify over/underpriced regions.  
-- **Visualization**:  
-  - **World maps** (Plotly): Price distribution by region.  
-  - **Scatter plots** (Matplotlib): Price comparisons (USD vs. PKR/INR).  
-
-### **3.5 Processor & Hardware Trends**  
-- **Analysis**: Track processor popularity by price tier and analyze hardware trends (e.g., battery size).  
-
-### **3.6 Camera Evolution**  
-- **Analysis**: Compare front/back camera megapixel trends and dual-camera adoption over time.  
+- Số lượng mẫu theo hãng (`Company Name`).
+- Phân phối giá theo từng quốc gia.
+- Phân tích xu hướng cấu hình (RAM, Camera, Battery) theo năm.
+- Top mẫu điện thoại có dung lượng pin, RAM, camera lớn nhất.
 
 ---
 
-## 4. Tools & Methods  
-- **Programming**: Python (Pandas, NumPy, Matplotlib, Seaborn, Plotly, Scikit-learn).  
-- **Visualization**:  
-  - **Matplotlib/Seaborn**: Static charts (line, bar, heatmap).  
-  - **Plotly**: Interactive charts (scatter, radar, maps).  
-  - **Plotly Dash**: For creating an interactive dashboard.  
-- **Statistical Methods**: Regression analysis, clustering (K-means), correlation analysis.  
+### 🧠 Phân tích mối quan hệ & trực quan hóa
+
+- **Biểu đồ scatter**: Giá vs RAM, Camera, Battery.
+- **Heatmap tương quan**: giữa các thông số và giá.
+- **Boxplot**: Phân tích giá theo hãng.
+- **Bar chart**: So sánh giá trung bình theo quốc gia.
 
 ---
 
-## 5. Deliverables  
-- **Cleaned Dataset**: `cleaned_mobile_data.csv` (standardized fields, numeric prices, categorized processors).  
-- **Summary Report**: Key findings on trends, brand comparisons, and pricing strategies.  
-- **Interactive Dashboard**:  
-  - Built with **Plotly Dash** for dynamic filtering (year, brand, price tier).  
-  - Includes line charts, heatmaps, radar charts, and maps.  
-- **Recommendations**: Strategic insights for product development, pricing, and market positioning.  
+### 🔮 Dự đoán giá (Forecasting & Predictive Modeling)
+
+**Mục tiêu**: Dự đoán "Launched Price (USD)" dựa trên:
+
+- RAM
+- Camera
+- Battery
+- Screen Size
+- Company Name
+
+**Các mô hình có thể dùng**:
+
+- Linear Regression
+- Random Forest Regressor
+- XGBoost
+
+**Đánh giá mô hình bằng**: MAE, RMSE
 
 ---
 
-## 6. Timeline  
+## 3. ✅ Kết quả kỳ vọng
 
-| **Phase**               | **Duration (Days)** |  
-|-------------------------|---------------------|  
-| Data Cleaning           | 2                   |  
-| Exploratory Analysis    | 3                   |  
-| In-depth Analysis       | 6                   |  
-| Dashboard Development   | 2                   |  
-| Final Report            | 1                   |  
-| **Total**               | **14 days**         |  
+- Dashboard trực quan để so sánh điện thoại.
+- Báo cáo phân tích xu hướng thị trường điện thoại.
+- Mô hình dự đoán giá điện thoại mới dựa trên cấu hình.
 
 ---
 
-## 7. Additional Considerations  
-- **Currency Conversion**: Use historical exchange rates (e.g., OANDA API).  
-- **Data Limitations**: Ensure global market representation (coverage of all brands/regions).  
-- **Ethical Considerations**: Address missing data to avoid biased clustering/comparisons.  
+## 🔧 ETL Pipeline & Timeline (Tổng cộng: 15 ngày)
 
 ---
+
+### 🟢 Giai đoạn 1: Extract – Trích xuất dữ liệu
+
+**Mục tiêu**: Đọc và thu thập dữ liệu từ file đầu vào.
+
+| Bước | Mô tả | Công cụ |
+|------|------|--------|
+| 1.1 | Đọc file CSV với encoding phù hợp | `pandas.read_csv()` |
+| 1.2 | Kiểm tra sơ bộ dữ liệu: số dòng, cột, kiểu dữ liệu | `df.info()`, `df.describe()` |
+| 1.3 | Xác định các cột cần phân tích và chuẩn hóa | Manual Review |
+
+⏱ Thời gian: **1 ngày**
+
+---
+
+### 🟡 Giai đoạn 2: Transform – Làm sạch & xử lý dữ liệu
+
+**Mục tiêu**: Chuẩn hóa, làm sạch và xử lý các cột định dạng sai.
+
+| Bước | Mô tả | Công cụ |
+|------|------|--------|
+| 2.1 | Xử lý dữ liệu thiếu, trùng lặp | `dropna()`, `drop_duplicates()` |
+| 2.2 | Tách và chuyển đổi các cột định dạng text (RAM, Camera, Battery, Weight) thành số | Regex, String methods |
+| 2.3 | Chuyển đổi các cột giá (USD, INR, PKR...) từ dạng `"USD 799"` → `799` | Regex, `.str.replace()` |
+| 2.4 | Đưa về một đơn vị chung nếu cần (vd: chỉ giữ lại giá USD) | Logic business |
+| 2.5 | Encoding các giá trị phân loại nếu cần (vd: `Company Name`) | Label Encoding / One-Hot |
+
+⏱ Thời gian: **4 ngày**
+
+---
+
+### 🔵 Giai đoạn 3: Load – Phân tích & trực quan hóa
+
+**Mục tiêu**: Phân tích mô tả và trực quan hóa dữ liệu đã làm sạch.
+
+| Bước | Mô tả | Công cụ |
+|------|------|--------|
+| 3.1 | EDA: thống kê mô tả, phân phối, giá trung bình theo hãng | `pandas`, `matplotlib`, `seaborn` |
+| 3.2 | Biểu đồ: bar chart, scatter, boxplot, heatmap | `matplotlib.pyplot` |
+| 3.3 | Dashboard tạm thời (nếu cần) bằng Jupyter | Markdown + Code |
+
+⏱ Thời gian: **4 ngày**
+
+---
+
+### 🟣 Giai đoạn 4: Forecast – Mô hình dự đoán giá
+
+**Mục tiêu**: Xây dựng mô hình ML để dự đoán giá bán điện thoại.
+
+| Bước | Mô tả | Công cụ |
+|------|------|--------|
+| 4.1 | Tạo tập train/test | `train_test_split()` |
+| 4.2 | Xây dựng mô hình hồi quy | Linear Regression, Random Forest, XGBoost |
+| 4.3 | Đánh giá mô hình | MAE, RMSE |
+| 4.4 | Dự đoán thử mẫu mới và so sánh thực tế |
+
+⏱ Thời gian: **4 ngày**
+
+---
+
+### 📦 Giai đoạn 5: Tổng hợp & Báo cáo
+
+**Mục tiêu**: Xuất kết quả, tạo báo cáo, trình bày dashboard.
+
+| Bước | Mô tả | Công cụ |
+|------|------|--------|
+| 5.1 | Xuất file CSV kết quả, bảng tổng hợp | `pandas.to_csv()` |
+| 5.2 | Tạo dashboard demo nếu cần | Streamlit / Power BI |
+
+⏱ Thời gian: **2 ngày**
+
+---
+
+## 🧮 Tổng thời gian: **15 ngày làm việc**
+
