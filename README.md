@@ -144,8 +144,8 @@
 | 17        | Phân tích giá trị khách hàng: CLV + RFM                                   |
 | 18        | Dự đoán churn (khách rời bỏ) + phân tích khách trung thành                |
 | 19        | Soát xét, tinh chỉnh các mô hình và biểu đồ quan trọng                    |
-| 20        | Tổng hợp báo cáo, xây dựng dashboard hoặc notebook                        |
-| 21        | Demo nội bộ / client + đề xuất chiến lược triển khai dữ liệu              |
+| 20        | Tổng hợp báo cáo, xây dựng dashboard                                      |
+| 21        | Demo                                                                      |
 
 ---
 
@@ -155,12 +155,5 @@
 - Phân khúc khách hàng theo hành vi và giá trị
 - Dự báo xu hướng mua hàng theo thương hiệu và sản phẩm
 - Đề xuất chiến lược tăng doanh thu và giữ chân khách hàng
-- Dashboard hoặc báo cáo trực quan hóa tương tác cao
+- Dashboard trực quan
 """
-
-# Lưu vào file .md
-md_file_path = "/mnt/data/data_analytics_proposal.md"
-with open(md_file_path, "w", encoding="utf-8") as f:
-    f.write(proposal_md)
-
-md_file_path
