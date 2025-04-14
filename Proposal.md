@@ -40,18 +40,6 @@ Assumption: 1 user had 1 order
 - Descriptive Analysis of Variables
 - Correlation matrix with `PurchaseIntent`
 - Visualizations of relationships between features and intent
-
-### 🔍 Additional EDA Highlights:
-Here are three expanded EDA steps chosen for their simplicity and insightfulness:
-
-  a. **Purchase Intent Distribution by Product Category**
-   - Identify which types of products attract higher purchase intent
-
-  b. **Purchase Intent by Gender**
-   - Compare purchase behavior between male and female customers
-
-  c. **Average Customer Age by Purchase Intent**
-   - Determine which age groups show higher interest in purchasing
      
 ### 3. Modeling & Feature Impact
 - Logistic Regression: interpret feature effects
